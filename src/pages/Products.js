@@ -1,4 +1,5 @@
 import React from 'react'
+import ProductCard from '../components/ProductCard'
 import { useState, useEffect } from 'react'
 
 const Products = () => {
@@ -22,7 +23,11 @@ const Products = () => {
     <div>
       <ul>
         {products.map(product => {
-          return (<li key={product.id}>{product.name}</li>)
+          return (
+          <li key={product.id}>
+            <ProductCard product={product}/>
+          </li>
+            )
         })}
       </ul>
 
