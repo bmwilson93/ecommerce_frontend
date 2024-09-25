@@ -6,7 +6,7 @@
 
 /* Header Styles */
 header {
-  background-color: gray;
+  background-color: #77777c;
   font-size: 28px;
 }
 
@@ -23,13 +23,58 @@ header {
   /* border: 1px solid blue; */
 }
 
+.account-button-container {
+  /* border: 1px solid red; */
+  display: flex;
+}
+
+.account-button-container button {
+  width: 100px;
+  height: 40px;
+  border-radius: 60px;
+  border: none;
+  background-color: #4e6abf;
+  color: white;
+  font-size: 16px;
+}
+
+.account-button-container button:hover {
+  background-color: #172d72;
+  color: white;
+  cursor: pointer;
+}
+
+.account-button-container .sign-up-button {
+  width: 150px;
+  background-color: #9ea5b9;
+  color: black;
+  /* border: 1px solid red; */
+  position: relative;
+  left: -70px;
+  z-index: 0;
+  padding-left: 60px;
+  /* text-align: right; */
+}
+
+.account-button-container .sign-in-button {
+  z-index: 10;
+}
+
+
+/* Cart Button */
 .cart-button-container {
   position: fixed;
-  right: 150px;
+  right: 100px;
+  top: 50px;
 }
 
 .cart-button-container button {
-  width: 80px;
-  height: 50px;
-  border-radius: 0 0 8px 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  border: none;
+  background-color: #393963;
+  color: white;
+  box-shadow: 2px 3px 15px 2px rgba(0,0,0,0.3);
+  cursor: pointer;
 }
