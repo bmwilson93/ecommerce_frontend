@@ -1,15 +1,25 @@
 import React from 'react'
+import 'boxicons'
 
 const Header = () => {
   return (
     <header>
       <div className='head-top'>
+
         <div>e-Commerce</div>
         {/* <div></div> */}
-        <div>Log In</div>
+        <div className='account-button-container'>
+          <button className='sign-in-button'>Log In</button>
+          <button className='sign-up-button'>Sign Up</button>
+        </div>
       </div>
+
       <div className='cart-button-container'>
-        <button>Cart</button>
+        <button> 
+        <box-icon color='white' name='cart'></box-icon>
+           4
+        </button>
+        
       </div>
     </header>
   )
