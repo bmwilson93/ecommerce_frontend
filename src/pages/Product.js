@@ -1,7 +1,8 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom'
+import { addToCart } from '../utils/cartUtils';
 
-const Product = () => {
+const Product = ({ setCart }) => {
   const location = useLocation();
   const product = location.state.product;
 
@@ -16,7 +17,14 @@ const Product = () => {
         </div>
         <div>
           <div className="add-cart-btn">
-          <span>Add To Cart </span><button>+</button>
+          <span>Add To Cart </span>
+          <button onClick={
+            // Uses the cartUtils function to add an item to the cart
+            async () => {
+              const newCart = await addToCart(product.id);
+              setCart(newCart);
+            }
+          }>+</button>
         </div>
 
         </div>
