@@ -1,7 +1,7 @@
 import React from 'react'
 import 'boxicons'
 
-const Header = () => {
+const Header = ({ cart }) => {
   return (
     <header>
       <div className='head-top'>
@@ -17,7 +17,7 @@ const Header = () => {
       <div className='cart-button-container'>
         <button> 
         <box-icon color='white' name='cart'></box-icon>
-           4
+           {cart.size}
         </button>
         
       </div>
