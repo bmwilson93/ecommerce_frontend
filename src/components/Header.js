@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import 'boxicons'
 
 const Header = ({ cart }) => {
@@ -7,6 +8,7 @@ const Header = ({ cart }) => {
       <div className='head-top'>
 
         <div>e-Commerce</div>
+        <div><Link to={`products`}>Browse Products</Link></div>
         {/* <div></div> */}
         <div className='account-button-container'>
           <button className='sign-in-button'>Log In</button>
