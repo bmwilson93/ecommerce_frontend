@@ -103,6 +103,10 @@ header {
   cursor: pointer;
 }
 
+.cart-button-container button:hover {
+  background-color: #4e6abf;
+}
+
 
 
 /* Product List Styles */
@@ -161,19 +165,19 @@ header {
 
 /* Product Details Page Styles */
 .product-container {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   display: flex;
   justify-content: center;
-  gap: 150px;
+  gap: 50px;
   margin-top: 50px;
   /* align-items: center; */
 }
 
 .product-container img {
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
   background-color: white;
   padding: 50px;
-  width: 300px;
+  width: 500px;
 }
 
 .product-details {
@@ -182,6 +186,7 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  width: 500px;
 }
 
 .product-details h2 {
