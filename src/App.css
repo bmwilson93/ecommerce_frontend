@@ -103,7 +103,7 @@ header {
 
 /* Product List Styles */
 .product-list {
-  margin: auto;
+  margin: 80px auto;
   display: grid;
   gap: 20px;
   grid-template-columns: auto auto auto auto;
@@ -138,6 +138,10 @@ header {
   border-radius: 0 0 10px 10px;
   color: white;
   font-size: 28px;
+}
+
+.product-card-details:hover {
+  background-color: green;
 }
 
 .price {
