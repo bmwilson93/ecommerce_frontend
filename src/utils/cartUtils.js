@@ -28,5 +28,18 @@ const clearCart = async () => {
   return data;
 }
 
+const getCart = async () => {
+  const result = await fetch(`${process.env.REACT_APP_API_PATH}/cart`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    credentials: "include"
+  });
+  const data = await result.json();
+  console.log(data);
+  return data;
+}
 
-export {addToCart, clearCart}
+
+export {addToCart, clearCart, getCart}
