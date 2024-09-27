@@ -1,3 +1,8 @@
+/* * {
+  margin: 0;
+  padding: 0;
+} */
+
 .App {
   text-align: center;
 }
@@ -26,6 +31,17 @@ li {
   cursor: pointer;
 }
 
+.btn-blue {
+  background-color: #4e6abf;
+  color: white;
+  cursor: pointer;
+  border: none;
+  border-radius: 2px;
+}
+
+.btn-blue:hover {
+  background-color: #172d72;
+}
 
 
 /* Header Styles */
