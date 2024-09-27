@@ -21,8 +21,9 @@ const Product = ({ setCart }) => {
           <button onClick={
             // Uses the cartUtils function to add an item to the cart
             async () => {
-              const newCart = await addToCart(product.id);
-              setCart(newCart);
+              console.log(product);
+              const updatedCart = await addToCart(JSON.stringify(product));
+              setCart(updatedCart);
             }
           }>+</button>
         </div>
