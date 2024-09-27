@@ -1,8 +1,10 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import 'boxicons'
 
 const Header = ({ cart }) => {
+  const navigate = useNavigate();
+
   return (
     <header>
       <div className='head-top'>
@@ -17,7 +19,7 @@ const Header = ({ cart }) => {
       </div>
 
       <div className='cart-button-container'>
-        <button> 
+        <button onClick={() => navigate('/cart')}> 
         <box-icon color='white' name='cart'></box-icon>
            {cart.size}
         </button>
