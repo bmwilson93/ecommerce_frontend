@@ -17,7 +17,7 @@ function App() {
   
   return (
     <div className="App">
-      <Header cart={cart}/>
+      <Header cart={cart} setCart={setCart}/>
 
       <Routes>
         <Route path='/' element={<div />}/>
