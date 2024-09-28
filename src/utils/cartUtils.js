@@ -41,5 +41,46 @@ const getCart = async () => {
   return data;
 }
 
+const removeCartItem = async (id) => {
+  const result = await fetch(`${process.env.REACT_APP_API_PATH}/cart/remove/${id}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    credentials: "include"
+  });
+  const data = await result.json();
+  console.log(data);
+  return data;
+}
 
-export {addToCart, clearCart, getCart}
+const increaseCartItem = async (id) => {
+  const result = await fetch(`${process.env.REACT_APP_API_PATH}/cart/increase/${id}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    credentials: "include"
+  });
+  const data = await result.json();
+  console.log(data);
+  return data;
+}
+
+const decreaseCartItem = async (id) => {
+  const result = await fetch(`${process.env.REACT_APP_API_PATH}/cart/decrease/${id}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    credentials: "include"
+  });
+  const data = await result.json();
+  console.log(data);
+  return data;
+}
+
+
+
+
+export {addToCart, clearCart, getCart, removeCartItem, increaseCartItem, decreaseCartItem}
