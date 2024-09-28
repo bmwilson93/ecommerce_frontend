@@ -1,17 +1,8 @@
 import React from 'react'
 import { clearCart, getCart } from '../utils/cartUtils'
-import { useEffect } from 'react'
 import './Cart.css'
 
 const Cart = ({ cart, setCart }) => {
-  const fetchCart = async () => {
-    const currCart = await getCart();
-    setCart(currCart);
-  }
-
-  useEffect(() => {
-    fetchCart();
-  }, [])
 
   const getCartTotal = () => {
     if (cart.items) {

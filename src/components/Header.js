@@ -1,8 +1,18 @@
-import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { useEffect } from 'react'
+import { getCart } from '../utils/cartUtils'
 import 'boxicons'
 
-const Header = ({ cart }) => {
+const Header = ({ cart, setCart }) => {
+  const fetchCart = async () => {
+    const currCart = await getCart();
+    setCart(currCart);
+  }
+
+  useEffect(() => {
+    fetchCart();
+  }, [])
+
   const navigate = useNavigate();
 
   return (
@@ -23,7 +33,7 @@ const Header = ({ cart }) => {
         <box-icon color='white' name='cart'></box-icon>
            {cart.size}
         </button>
-        
+
       </div>
     </header>
   )
