@@ -24,27 +24,62 @@ const Cart = ({ cart, setCart }) => {
           {cart.items ? cart.items.map(item => {
             return (
               <li key={item.product.id}>
+
+
+
+                {/* Container Div */}
                 <div className='cart-item-container'>
 
+
+                  {/* Image Div */}
                   <div className='cart-item-image'>
                     <img src={item.product.product_img} />
                   </div>
+                  {/* End Image Div */}
 
+
+                  {/* Details Div */}
                   <div className='cart-item-details'>
-                    <h2>{item.product.name}</h2>
-                    <p><span className='price-sign'>$</span><span className='price'>{item.product.price} x {item.qty} </span><div><div>+</div><div>-</div></div></p>
-                    <p><span className='price-sign'>$</span><span className='price'>{item.product.price * item.qty}</span></p>
-                    <button 
-                      className='remove-item-btn btn-blue'
-                      onClick={async () => {
-                        const updatedCart = await removeCartItem(item.product.id);
-                        setCart(updatedCart);
-                      }}
-                    >Remove Item</button>
+
+                    <div>
+                      <h2>{item.product.name}</h2>
+                    </div>
+
+                    <div>
+                      <div className='cart-item-price-container'>
+                        <p><span className='price-sign'>$</span><span className='price cart-price'>{(item.product.price * item.qty).toFixed(2)}</span></p>
+                        <p>(<span className='price-sign'>$</span><span className='price cart-price-per-item'>{item.product.price.toFixed(2)} x {item.qty} </span>)</p>
+                      </div>
+                    </div>
+
+                    <div className='qty-container'>
+                      <button className='qty-section btn-blue'>-</button>
+                      <div className='qty-section'>{item.qty}</div>
+                      <button className='qty-section btn-blue'>+</button>
+                    </div>
+                    
+                    <div>
+                      {/* Remove Item Button */}
+                      <button 
+                        className='remove-item-btn btn-blue'
+                        onClick={async () => {
+                          const updatedCart = await removeCartItem(item.product.id);
+                          setCart(updatedCart);
+                        }}
+                      >
+                        Remove Item
+                      </button>
+                    </div>
+
                   </div>
+                  {/* End Details DIv */}
 
 
                 </div>
+                {/* End container Div */}
+
+
+
               </li>)
           }) : <></>}
         </ul>
