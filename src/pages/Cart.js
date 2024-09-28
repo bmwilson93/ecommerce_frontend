@@ -1,5 +1,5 @@
 import React from 'react'
-import { clearCart, removeCartItem } from '../utils/cartUtils'
+import { clearCart, removeCartItem, increaseCartItem, decreaseCartItem } from '../utils/cartUtils'
 import './Cart.css'
 
 const Cart = ({ cart, setCart }) => {
@@ -47,15 +47,33 @@ const Cart = ({ cart, setCart }) => {
 
                     <div>
                       <div className='cart-item-price-container'>
-                        <p><span className='price-sign'>$</span><span className='price cart-price'>{(item.product.price * item.qty).toFixed(2)}</span></p>
+                        <p><span className='price-sign'></span><span className='price cart-price'>${(item.product.price * item.qty).toFixed(2)}</span></p>
                         <p>(<span className='price-sign'>$</span><span className='price cart-price-per-item'>{item.product.price.toFixed(2)} x {item.qty} </span>)</p>
                       </div>
                     </div>
 
                     <div className='qty-container'>
-                      <button className='qty-section btn-blue'>-</button>
+                      <button 
+                      className='qty-section btn-blue'
+                      onClick={async () => {
+                        const updatedCart = await decreaseCartItem(item.product.id);
+                        setCart(updatedCart);
+                      }}
+                      >
+                        -
+                      </button>
+
                       <div className='qty-section'>{item.qty}</div>
-                      <button className='qty-section btn-blue'>+</button>
+
+                      <button 
+                      className='qty-section btn-blue'
+                      onClick={async () => {
+                        const updatedCart = await increaseCartItem(item.product.id);
+                        setCart(updatedCart);
+                      }}
+                      >
+                        +
+                      </button>
                     </div>
                     
                     <div>
@@ -85,12 +103,15 @@ const Cart = ({ cart, setCart }) => {
         </ul>
 
         {/* Clear Cart Button */}
-        <button onClick={
-          async () => {
-            var updatedCart = await clearCart();
-            setCart(updatedCart)
+        <button 
+          className='btn-blue btn-empty-cart'
+          onClick={
+            async () => {
+              var updatedCart = await clearCart();
+              setCart(updatedCart)
+            }
           }
-        }>
+        >
           Empty Your Cart
         </button>
 
@@ -98,11 +119,14 @@ const Cart = ({ cart, setCart }) => {
 
 
       <div className='cart-details-container'>
-        <div>
-          Total: <span className='price-sign'>$</span><span className='price price-total'>{getCartTotal()}</span>
+        <div className='cart-total'>
+          <p>
+            Total: <span className='price-sign'>$</span><span className='price price-total'>{getCartTotal()}</span>
+            
+          </p>
         </div>
         <div>
-          <button>Check Out</button>
+          <button className='btn-blue btn-checkout'>Check Out</button>
         </div>
       </div>
 
