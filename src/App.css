@@ -2,6 +2,11 @@
   margin: 0;
   padding: 0;
 } */
+* {
+  --blue: #4e6abf;
+  --blue-light: #9ea5b9;
+  --blue-dark: #172d72;
+}
 
 .App {
   text-align: center;
