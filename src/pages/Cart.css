@@ -1,26 +1,29 @@
+@import '../App.css';
+
 img {
   width: 200px;
 }
 
 .price-sign {
   /* vertical-align: text-top; */
-  margin-bottom: 10px;
+  /* margin-bottom: 10px;
   padding-bottom: 10px;
-  /* border: 1px solid blue; */
   position: relative;
-  top: -5px;
+  top: -5px; */
+  /* border: 1px solid blue; */
 }
 
 .cart-container ul {
   /* margin: 0; */
   padding: 0;
-  width: 50vw;
-  border: 1px solid red;
+  width: 40vw;
+  /* border: 1px solid red; */
 }
 
 .cart-container li {
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
   padding: 0;
+  margin: 10px 0;
   /* margin-bottom: 25px; */
   /* margin: 0; */
 }
@@ -32,6 +35,10 @@ img {
   gap: 50px;
   border: 1px solid orange;
 }
+
+
+
+/* Cart Item List and Details */
 
 .cart-item-list-container {
   display: flex;
@@ -48,7 +55,7 @@ img {
 
 .cart-item-container div {
   /* width: 50px; */
-  border: 1px solid orange;
+  /* border: 1px solid orange; */
 }
 
 .cart-item-image {
@@ -57,7 +64,92 @@ img {
 
 .cart-item-details {
   flex-grow: 1;
+  display: grid;
+  grid-template-columns: auto auto;
+  padding: 20px;
+  /* grid-template-rows: auto auto; */
+  /* grid-auto-rows: 50%; */
 }
+
+
+/* Reset maring to 0 for heading and paragraphs */
+h2, p {
+  margin: 0;
+}
+
+
+
+.cart-item-details > div:nth-child(1) {
+  display: flex;
+}
+
+.cart-item-details > div:nth-child(2) {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cart-item-details > div:nth-child(3) {
+  display: flex;
+  align-items: flex-end;
+}
+
+.cart-item-details > div:nth-child(4) {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.cart-item-details > div {
+  padding: 18px;
+}
+
+.cart-item-price-container {
+  /* background-color: blue; */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cart-item-details .cart-price {
+  font-size: 36px;
+}
+
+.cart-item-details .cart-price-per-item {
+  font-size: 14px;
+}
+
+
+.qty-container {
+  display: flex;
+  gap: 1px;
+}
+
+.qty-container > div:nth-child(2) {
+  background-color: var(--blue);
+  opacity: .8;
+  color: white;
+  border: none;
+}
+
+.qty-section {
+  /* background-color: var(--blue); */
+  border: 1px solid white;
+  width: 50px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* color: white */
+} 
+
+.cart-item-details .remove-item-btn {
+  height: 30px;
+}
+
+
+
+
+/* Cart Details */
 
 .cart-details-container {
   margin-top: 18px;
