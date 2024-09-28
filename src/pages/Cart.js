@@ -1,5 +1,5 @@
 import React from 'react'
-import { clearCart, getCart } from '../utils/cartUtils'
+import { clearCart, removeCartItem } from '../utils/cartUtils'
 import './Cart.css'
 
 const Cart = ({ cart, setCart }) => {
@@ -10,7 +10,7 @@ const Cart = ({ cart, setCart }) => {
       for (let i = 0; i < cart.items.length; i++) {
         sum += (cart.items[i].product.price * cart.items[i].qty);
       }
-      return sum;
+      return sum.toFixed(2);
     }
   }
 
@@ -34,7 +34,13 @@ const Cart = ({ cart, setCart }) => {
                     <h2>{item.product.name}</h2>
                     <p><span className='price-sign'>$</span><span className='price'>{item.product.price} x {item.qty} </span><div><div>+</div><div>-</div></div></p>
                     <p><span className='price-sign'>$</span><span className='price'>{item.product.price * item.qty}</span></p>
-                    <button className='remove-item-btn btn-blue'>Remove Item</button>
+                    <button 
+                      className='remove-item-btn btn-blue'
+                      onClick={async () => {
+                        const updatedCart = await removeCartItem(item.product.id);
+                        setCart(updatedCart);
+                      }}
+                    >Remove Item</button>
                   </div>
 
 
@@ -45,8 +51,9 @@ const Cart = ({ cart, setCart }) => {
 
         {/* Clear Cart Button */}
         <button onClick={
-          () => {
-            setCart(clearCart())
+          async () => {
+            var updatedCart = await clearCart();
+            setCart(updatedCart)
           }
         }>
           Empty Your Cart
