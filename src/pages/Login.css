@@ -1,0 +1,59 @@
+@import '../App.css';
+
+.login-container, .signup-container {
+  background-color: white;
+  box-shadow: 2px 3px 10px  gray;
+  /* border: 1px solid blue; */
+  width: 400px;
+  margin: 100px auto;
+  height: 600px;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-container > h2,
+.signup-container > h2 {
+  font-size: 38px;
+  
+  margin-bottom: 50px;
+}
+
+.login-container form,
+.signup-container form {
+  /* margin: auto; */
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  gap: 50px;
+  margin-top: 50px;
+  /* justify-content: center; */
+  /* align-items: center; */
+}
+
+.login-container input,
+.signup-container input {
+  padding: 0 20px;
+  background-color: var(--blue-light);
+}
+
+.login-container button,
+.signup-container button {
+  width: 120px;
+  margin: auto;
+  cursor: pointer;
+  border: none;
+}
+
+.login-container button, 
+.login-container input,
+.signup-container button,
+.signup-container input {
+  height: 40px;
+  font-size: 18px;
+  border-radius: 60px;
+  border: none;
+}
