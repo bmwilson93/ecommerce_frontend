@@ -23,7 +23,12 @@ const Header = ({ cart, setCart }) => {
         <div><Link to={`products`}>Browse Products</Link></div>
         {/* <div></div> */}
         <div className='account-button-container'>
-          <button className='sign-in-button'>Log In</button>
+          <button 
+            className='sign-in-button'
+            onClick={() => navigate('/login')}
+          >
+            Log In
+          </button>
           <button className='sign-up-button'>Sign Up</button>
         </div>
       </div>
