@@ -29,7 +29,12 @@ const Header = ({ cart, setCart }) => {
           >
             Log In
           </button>
-          <button className='sign-up-button'>Sign Up</button>
+          <button 
+            className='sign-up-button'
+            onClick={() => navigate('/signup')}
+            >
+              Sign Up
+            </button>
         </div>
       </div>
 
