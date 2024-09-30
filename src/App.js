@@ -5,6 +5,7 @@ import Header from './components/Header';
 import Products from './pages/Products';
 import Product from './pages/Product';
 import Cart from './pages/Cart';
+import Login from './pages/Login';
 
 import './App.css';
 
@@ -24,6 +25,7 @@ function App() {
         <Route path='/products' element={<Products />}/>
         <Route path='/product/:id' element={<Product setCart={setCart}/>}/>
         <Route path='/cart' element={<Cart cart={cart} setCart={setCart}/>} />
+        <Route path='/login' element={<Login />} />
       </Routes>
     </div>
   );
