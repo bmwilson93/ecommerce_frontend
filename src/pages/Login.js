@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { logout } from '../utils/accountUtils';
+import { login } from '../utils/accountUtils';
 import './Login.css'
 
 const Login = () => {
@@ -16,9 +16,19 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('submit login');
-    let result = await logout();
+    console.log('submiting login');
+    // build the body object
+    let body = JSON.stringify({
+      "username": email,
+      "password": password
+    })
+    // make the call with the login util function
+    let result = await login(body);
+
+    //result should be the result + status
     console.log(result);
+
+    // if result.ok -> then succssful login, navigate to account page. 
   }
 
   return (
