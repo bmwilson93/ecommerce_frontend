@@ -7,6 +7,7 @@ import Product from './pages/Product';
 import Cart from './pages/Cart';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import Account from './pages/Account';
 
 import './App.css';
 
@@ -30,6 +31,7 @@ function App() {
         <Route path='/cart' element={<Cart cart={cart} setCart={setCart}/>} />
         <Route path='/login' element={<Login sessionUser={sessionUser} setSessionUser={setSessionUser}/>} />
         <Route path='/signup' element={<Signup sessionUser={sessionUser} setSessionUser={setSessionUser}/>} />
+        <Route path='/account' element={<Account sessionUser={sessionUser}/>} />
       </Routes>
     </div>
   );
