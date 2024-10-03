@@ -26,7 +26,9 @@ function App() {
   }
 
   // check if user is logged in on load
-  useEffect(() => {fetchSessionUser()}, [])
+  useEffect(() => {
+    fetchSessionUser()
+  }, [])
   
   return (
     <div className="App">
@@ -39,7 +41,7 @@ function App() {
         <Route path='/cart' element={<Cart cart={cart} setCart={setCart}/>} />
         <Route path='/login' element={<Login sessionUser={sessionUser} setSessionUser={setSessionUser}/>} />
         <Route path='/signup' element={<Signup sessionUser={sessionUser} setSessionUser={setSessionUser}/>} />
-        <Route path='/account' element={<Account sessionUser={sessionUser}/>} />
+        <Route path='/account' element={<Account sessionUser={sessionUser} setSessionUser={setSessionUser}/>} />
       </Routes>
     </div>
   );
