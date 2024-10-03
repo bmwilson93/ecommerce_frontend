@@ -16,6 +16,8 @@ function App() {
     "items": []
   })
 
+  const [sessionUser, setSessionUser] = useState(null);
+
   
   return (
     <div className="App">
@@ -26,8 +28,8 @@ function App() {
         <Route path='/products' element={<Products />}/>
         <Route path='/product/:id' element={<Product setCart={setCart}/>}/>
         <Route path='/cart' element={<Cart cart={cart} setCart={setCart}/>} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/signup' element={<Signup />} />
+        <Route path='/login' element={<Login sessionUser={sessionUser} setSessionUser={setSessionUser}/>} />
+        <Route path='/signup' element={<Signup sessionUser={sessionUser} setSessionUser={setSessionUser}/>} />
       </Routes>
     </div>
   );
