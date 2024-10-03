@@ -38,7 +38,6 @@ const getCart = async () => {
       credentials: "include"
     });
     const data = await result.json();
-    console.log(data);
     return data;
     
   } catch (error) {
