@@ -42,23 +42,44 @@ const register = async (body) => {
     credentials: "include"
   }
 );
-// const data = await result.json();
-console.log(result);
-// return data;
+const data = await result.json();
+// console.log(result);
+return data;
 }
 
 const isLoggedIn = async () => {
-  const result = await fetch(`${process.env.REACT_APP_API_PATH}/register`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    credentials: "include"
+  try {
+    const result = await fetch(`${process.env.REACT_APP_API_PATH}/isloggedin`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include"
+    });
+    if (result.ok) {
+      const data = await result.json();
+      return data;
+    } else {
+      return null;
+    }
+  } catch (error) {
+    console.log(error)
+    return null;
   }
-);
-// const data = await result.json();
-console.log(result);
-// return data;
+
+  // const result = await fetch(`${process.env.REACT_APP_API_PATH}/isloggedin`, {
+  //   method: "GET",
+  //   headers: {
+  //     "Content-Type": "application/json",
+  //   },
+  //   credentials: "include"
+  // });
+  // console.log('testing result.ok')
+  // console.log(result.ok);
+  // const data = await result.json();
+  // return data;
+
+
 }
 
 const getDisplayName = async () => {
@@ -76,4 +97,4 @@ return data;
 }
 
 
-export {login, logout, register, getDisplayName}
+export {login, logout, register, isLoggedIn, getDisplayName}
