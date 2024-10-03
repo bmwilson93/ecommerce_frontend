@@ -1,3 +1,25 @@
+# e-commerce Client
+
+Codecademy Portfolio Project - e-commerce Client
+
+Live site: ---
+
+## Project Requirements:
+
+- Build a functioning e-commerce application using React, Node.js, and Postgres by
+- extending your existing e-commerce REST API with an interactive client
+- Use Git version control
+- Use command line 
+- Develop locally on your computer
+- Enable users to create a personal account
+- Enable users to create an account with a third-party service (Google, Facebook, etc)
+- Enable users to browse products
+- Enable users to complete a purchase using a payment processor (Stripe recommended)
+- Enable users to view order history
+- Deploy the application using Render
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
