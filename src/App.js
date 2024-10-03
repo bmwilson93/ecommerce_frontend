@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { isLoggedIn } from './utils/accountUtils';
 
 import Header from './components/Header';
 import Products from './pages/Products';
@@ -19,10 +20,17 @@ function App() {
 
   const [sessionUser, setSessionUser] = useState(null);
 
+  const fetchSessionUser = async () => {
+    const session = await isLoggedIn();
+    setSessionUser(session);
+  }
+
+  // check if user is logged in on load
+  useEffect(() => {fetchSessionUser()}, [])
   
   return (
     <div className="App">
-      <Header cart={cart} setCart={setCart}/>
+      <Header cart={cart} setCart={setCart} sessionUser={sessionUser}/>
 
       <Routes>
         <Route path='/' element={<div />}/>
