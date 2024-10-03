@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { register } from '../utils/accountUtils';
 import './Login.css'
 
-const Signup = () => {
+const Signup = ({ sessionUser, setSessionUser }) => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -27,14 +27,20 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault() 
     console.log('submiting signup');
+    // build the body object
     let body = JSON.stringify({
       "username": email,
       "password": password,
       "first_name": firstName,
       "last_name": lastName
     })
+    // make the call with the register util function
     let result = await register(body);
+
+    //result should be the result + status
     console.log(result);
+
+    // if result.ok -> then succssful register & login, navigate to account page. 
   }
 
   return (
