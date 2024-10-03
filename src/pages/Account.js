@@ -1,5 +1,6 @@
 import { useEffect } from "react"
 import { useNavigate } from 'react-router-dom'
+import { logout } from "../utils/accountUtils";
 
 const Account = ({ sessionUser }) => {
   const navigate = useNavigate();
@@ -18,6 +19,7 @@ const Account = ({ sessionUser }) => {
           <p>{sessionUser.last_name}</p>
           <p>Email</p>
           <p>{sessionUser.email}</p>
+          <button onClick={() => logout()}>Logout</button>
         </div> 
         : navigate('/login')
       }
