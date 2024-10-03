@@ -1,8 +1,9 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
 import { getCart } from '../utils/cartUtils'
-import { getDisplayName, logout } from '../utils/accountUtils'
 import 'boxicons'
+
+import './Header.css'
 
 const Header = ({ cart, setCart, sessionUser }) => {
   const fetchCart = async () => {
@@ -29,14 +30,16 @@ const Header = ({ cart, setCart, sessionUser }) => {
         {/* If there is a user session, render their name, else render the login buttons */}
         {sessionUser ?
             
-            <button 
-              className='account-btn'
-              onClick={() => navigate('/account')}
-            >
-              Hi {sessionUser.first_name}
-            </button>
+            <div className='account-btn-container'>
+              <button 
+                className='account-btn'
+                onClick={() => navigate('/account')}
+              >
+                Hi {sessionUser.first_name}
+              </button>
+            </div>
 
-          : <div className='account-button-container'>
+          : <div className='account-btn-container'>
             <button 
               className='sign-in-button'
               onClick={() => navigate('/login')}
@@ -60,8 +63,6 @@ const Header = ({ cart, setCart, sessionUser }) => {
         <box-icon color='white' name='cart'></box-icon>
            {cart.size}
         </button>
-
-        <button onClick={() => logout()}>Logout</button>
 
       </div>
     </header>
