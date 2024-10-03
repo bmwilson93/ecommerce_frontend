@@ -1,8 +1,11 @@
 import { useState } from 'react';
 import { register } from '../utils/accountUtils';
+import { useNavigate } from 'react-router-dom'
 import './Login.css'
 
 const Signup = ({ sessionUser, setSessionUser }) => {
+  const navigate = useNavigate();
+
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -24,9 +27,9 @@ const Signup = ({ sessionUser, setSessionUser }) => {
     setPassword(e.target.value);
   }
 
+
   const handleSubmit = async (e) => {
     e.preventDefault() 
-    console.log('submiting signup');
     // build the body object
     let body = JSON.stringify({
       "username": email,
@@ -36,11 +39,9 @@ const Signup = ({ sessionUser, setSessionUser }) => {
     })
     // make the call with the register util function
     let result = await register(body);
-
-    //result should be the result + status
-    console.log(result);
-
+    setSessionUser(result);
     // if result.ok -> then succssful register & login, navigate to account page. 
+    navigate(`/account`)
   }
 
   return (
