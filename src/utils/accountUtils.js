@@ -25,11 +25,11 @@ const logout = async () => {
       "Content-Type": "application/json",
     },
     credentials: "include"
-  }
-);
-// const data = await result.json();
-console.log(result);
-// return data;
+  });
+  // const data = await result.json();
+  console.log(result);
+  // return data;
+  return;
 }
 
 const register = async (body) => {
