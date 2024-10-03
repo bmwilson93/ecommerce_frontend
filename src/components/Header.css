@@ -16,11 +16,11 @@ header {
 
 
 
-.account-button-container {
+.account-btn-container {
   display: flex;
 }
 
-.account-button-container button {
+.account-btn-container button {
   width: 100px;
   height: 40px;
   border-radius: 60px;
@@ -30,13 +30,13 @@ header {
   font-size: 16px;
 }
 
-.account-button-container button:hover {
+.account-btn-container button:hover {
   background-color: var(--blue-dark);
   color: white;
   cursor: pointer;
 }
 
-.account-button-container .sign-up-button {
+.account-btn-container .sign-up-button {
   width: 150px;
   background-color: var(--blue-light);
   color: black;
@@ -48,7 +48,7 @@ header {
   /* text-align: right; */
 }
 
-.account-button-container .sign-in-button {
+.account-btn-container .sign-in-button {
   z-index: 10;
 }
 
