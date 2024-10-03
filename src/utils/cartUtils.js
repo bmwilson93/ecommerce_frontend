@@ -29,16 +29,21 @@ const clearCart = async () => {
 }
 
 const getCart = async () => {
-  const result = await fetch(`${process.env.REACT_APP_API_PATH}/cart`, {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    credentials: "include"
-  });
-  const data = await result.json();
-  console.log(data);
-  return data;
+  try {
+    const result = await fetch(`${process.env.REACT_APP_API_PATH}/cart`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include"
+    });
+    const data = await result.json();
+    console.log(data);
+    return data;
+    
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 const removeCartItem = async (id) => {
