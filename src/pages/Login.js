@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { login } from '../utils/accountUtils';
 import './Login.css'
 
-const Login = () => {
+const Login = ({ sessionUser, setSessionUser }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -14,6 +14,7 @@ const Login = () => {
     setPassword(e.target.value);
   }
 
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log('submiting login');
@@ -24,12 +25,10 @@ const Login = () => {
     })
     // make the call with the login util function
     let result = await login(body);
-
-    //result should be the result + status
-    console.log(result);
-
-    // if result.ok -> then succssful login, navigate to account page. 
+    setSessionUser(result);
+    // if result.ok -> then succssful login, navigate to next page. 
   }
+
 
   return (
     <div className='login-container'>
