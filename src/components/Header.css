@@ -8,7 +8,6 @@ header {
 
 .head-top {
   height:  60px;
-  /* background: red; */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -18,7 +17,6 @@ header {
 
 
 .account-button-container {
-  /* border: 1px solid red; */
   display: flex;
 }
 
@@ -27,20 +25,20 @@ header {
   height: 40px;
   border-radius: 60px;
   border: none;
-  background-color: #4e6abf;
+  background-color: var(--blue);
   color: white;
   font-size: 16px;
 }
 
 .account-button-container button:hover {
-  background-color: #172d72;
+  background-color: var(--blue-dark);
   color: white;
   cursor: pointer;
 }
 
 .account-button-container .sign-up-button {
   width: 150px;
-  background-color: #9ea5b9;
+  background-color: var(--blue-light);
   color: black;
   /* border: 1px solid red; */
   position: relative;
@@ -76,5 +74,5 @@ header {
 }
 
 .cart-button-container button:hover {
-  background-color: #4e6abf;
+  background-color: var(--blue);
 }
