@@ -3,13 +3,19 @@ import { useNavigate } from 'react-router-dom'
 import { logout } from "../utils/accountUtils";
 import { isLoggedIn } from "../utils/accountUtils";
 
-const Account = ({ sessionUser }) => {
+const Account = ({ sessionUser, setSessionUser }) => {
   const navigate = useNavigate();
 
   // Check if logged in, if not redirect to the login page
   const checkOnReload = async () => {
     const session = await isLoggedIn();
     if (!session) navigate('/login');
+  }
+
+  const handleLogout = async () => {
+    await logout();
+    setSessionUser(null);
+    navigate('/');
   }
 
   useEffect(() => {
@@ -29,7 +35,7 @@ const Account = ({ sessionUser }) => {
           <p>{sessionUser.last_name}</p>
           <p>Email</p>
           <p>{sessionUser.email}</p>
-          <button onClick={() => logout()}>Logout</button>
+          <button onClick={() => handleLogout()}>Logout</button>
         </div> 
         : <></>
       }
