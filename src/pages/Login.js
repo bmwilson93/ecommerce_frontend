@@ -1,8 +1,11 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom'
 import { login } from '../utils/accountUtils';
 import './Login.css'
 
 const Login = ({ sessionUser, setSessionUser }) => {
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -26,7 +29,9 @@ const Login = ({ sessionUser, setSessionUser }) => {
     // make the call with the login util function
     let result = await login(body);
     setSessionUser(result);
-    // if result.ok -> then succssful login, navigate to next page. 
+    // TODO add in the functionality to navigat to either account or checkout page
+    // navigate to next page (either /account or /checkout)
+    navigate(`/account`)
   }
 
 
