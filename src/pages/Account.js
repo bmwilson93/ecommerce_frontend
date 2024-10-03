@@ -1,16 +1,26 @@
 import { useEffect } from "react"
 import { useNavigate } from 'react-router-dom'
 import { logout } from "../utils/accountUtils";
+import { isLoggedIn } from "../utils/accountUtils";
 
 const Account = ({ sessionUser }) => {
   const navigate = useNavigate();
-  // useEffect(() => {}, [])
+
+  // Check if logged in, if not redirect to the login page
+  const checkOnReload = async () => {
+    const session = await isLoggedIn();
+    if (!session) navigate('/login');
+  }
+
+  useEffect(() => {
+    console.log('useEffect Account.js')
+    checkOnReload();
+  }, [])
 
   return (
-    // TODO check if sessionUser is null, if not logged in, redirect to the login route,
-    // else render the account page
     <>
       {
+        // Only render the page is there is a session
         sessionUser ? 
         <div>
           <p>First Name</p>
@@ -21,7 +31,7 @@ const Account = ({ sessionUser }) => {
           <p>{sessionUser.email}</p>
           <button onClick={() => logout()}>Logout</button>
         </div> 
-        : navigate('/login')
+        : <></>
       }
 
     </>
