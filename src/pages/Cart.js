@@ -15,6 +15,15 @@ const Cart = ({ cart, setCart }) => {
     }
   }
 
+  const handleClick = () => {
+    // check if cart is empty
+    if (cart.size > 0) {
+      navigate('/checkout')
+    } else {
+      alert("Your cart is empty!")
+    }
+  }
+
   return (
     <div className='cart-container'>
 
@@ -129,7 +138,7 @@ const Cart = ({ cart, setCart }) => {
         <div>
           <button 
             className='btn-blue btn-checkout'
-            onClick={() => {navigate('/checkout')}}
+            onClick={handleClick}
           >
             Check Out
           </button>
