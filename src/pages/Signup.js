@@ -1,11 +1,16 @@
 import { useState } from 'react';
 import { register } from '../utils/accountUtils';
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 import './Login.css'
 
 const Signup = ({ sessionUser, setSessionUser }) => {
   const navigate = useNavigate();
+  const location = useLocation();
 
+  let nextPage = '/account';
+  if (location.state) {nextPage = location.state.nextPage};
+
+  // States for form inputs
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -41,7 +46,7 @@ const Signup = ({ sessionUser, setSessionUser }) => {
     let result = await register(body);
     setSessionUser(result);
     // if result.ok -> then succssful register & login, navigate to account page. 
-    navigate(`/account`)
+    navigate(nextPage)
   }
 
   return (
@@ -61,6 +66,7 @@ const Signup = ({ sessionUser, setSessionUser }) => {
           Sign Up
         </button>
       </form>
+      <p>Already have an account? <a onClick={() => {navigate(`/login`, {state:{nextPage: nextPage}})}}>Log In</a></p>
     </div>
   )
 }
