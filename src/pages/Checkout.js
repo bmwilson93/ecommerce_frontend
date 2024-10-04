@@ -8,7 +8,7 @@ const Checkout = () => {
   // Check if logged in, if not redirect to the login page
   const checkOnReload = async () => {
     const session = await isLoggedIn();
-    if (!session) navigate('/login');
+    if (!session) navigate('/login', {state:{nextPage: '/checkout'}});
   }
 
   useEffect(() => {
