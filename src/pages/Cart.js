@@ -129,7 +129,7 @@ const Cart = ({ cart, setCart }) => {
         <div>
           <button 
             className='btn-blue btn-checkout'
-            onClick={navigate('/checkout')}
+            onClick={() => {navigate('/checkout')}}
           >
             Check Out
           </button>
