@@ -1,8 +1,9 @@
-import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import { clearCart, removeCartItem, increaseCartItem, decreaseCartItem } from '../utils/cartUtils'
 import './Cart.css'
 
 const Cart = ({ cart, setCart }) => {
+  const navigate = useNavigate();
 
   const getCartTotal = () => {
     if (cart.items) {
@@ -126,7 +127,12 @@ const Cart = ({ cart, setCart }) => {
           </p>
         </div>
         <div>
-          <button className='btn-blue btn-checkout'>Check Out</button>
+          <button 
+            className='btn-blue btn-checkout'
+            onClick={navigate('/checkout')}
+          >
+            Check Out
+          </button>
         </div>
       </div>
 
