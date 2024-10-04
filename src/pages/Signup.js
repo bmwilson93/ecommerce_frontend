@@ -66,7 +66,7 @@ const Signup = ({ sessionUser, setSessionUser }) => {
           Sign Up
         </button>
       </form>
-      <p>Already have an account? <a onClick={() => {navigate(`/login`, {state:{nextPage: nextPage}})}}>Log In</a></p>
+      <p className='toggle-link'>Already have an account? <a onClick={() => {navigate(`/login`, {state:{nextPage: nextPage}})}}>Log In</a></p>
     </div>
   )
 }

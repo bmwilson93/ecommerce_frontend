@@ -55,7 +55,7 @@ const Login = ({ sessionUser, setSessionUser }) => {
           Log In
         </button>
       </form>
-      <p>Don't have an account? <a onClick={() => {navigate(`/signup`, {state:{nextPage: nextPage}})}}>Sign Up</a></p>
+      <p className='toggle-link'>Don't have an account? <a onClick={() => {navigate(`/signup`, {state:{nextPage: nextPage}})}}>Sign Up</a></p>
     </div>
   )
 }
