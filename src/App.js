@@ -9,6 +9,7 @@ import Cart from './pages/Cart';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Account from './pages/Account';
+import Checkout from './pages/Checkout';
 
 import './App.css';
 
@@ -42,6 +43,7 @@ function App() {
         <Route path='/login' element={<Login sessionUser={sessionUser} setSessionUser={setSessionUser}/>} />
         <Route path='/signup' element={<Signup sessionUser={sessionUser} setSessionUser={setSessionUser}/>} />
         <Route path='/account' element={<Account sessionUser={sessionUser} setSessionUser={setSessionUser}/>} />
+        <Route path='/checkout' element={<Checkout />} />
       </Routes>
     </div>
   );
