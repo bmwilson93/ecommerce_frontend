@@ -1,11 +1,16 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 import { login } from '../utils/accountUtils';
 import './Login.css'
 
 const Login = ({ sessionUser, setSessionUser }) => {
   const navigate = useNavigate();
+  const location = useLocation();
 
+  let nextPage = '/account';
+  if (location.state) {nextPage = location.state.nextPage};
+
+  // States for form inputs
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -31,7 +36,7 @@ const Login = ({ sessionUser, setSessionUser }) => {
     setSessionUser(result);
     // TODO add in the functionality to navigat to either account or checkout page
     // navigate to next page (either /account or /checkout)
-    navigate(`/account`)
+    navigate(nextPage)
   }
 
 
@@ -50,6 +55,7 @@ const Login = ({ sessionUser, setSessionUser }) => {
           Log In
         </button>
       </form>
+      <p>Don't have an account? <a onClick={() => {navigate(`/signup`, {state:{nextPage: nextPage}})}}>Sign Up</a></p>
     </div>
   )
 }
