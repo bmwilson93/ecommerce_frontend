@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react"
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation, Route, Routes } from 'react-router-dom'
 import { isLoggedIn } from "../utils/accountUtils";
 
 import {Elements} from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 
 import CheckoutForm from "../components/CheckoutForm";
+import Complete from "./Complete";
 
 const stripePromise = loadStripe(process.env.REACT_APP_PUBLISHABLE_KEY);
 
@@ -18,6 +19,8 @@ const Checkout = () => {
       theme: 'night'
     }
   };
+  const location = useLocation();
+  const cartTotal = location.state.cartTotal;
 
   const [clientSecret, setClientSecret] = useState("")
 
@@ -31,7 +34,7 @@ const Checkout = () => {
     // if user is logged in, then get stripe client secret
     const result = await fetch(`${process.env.REACT_APP_API_PATH}/orders/create-payment-intent`, {
       method: "POST",
-      // body: JSON.stringify({}),
+      body: JSON.stringify({"amount": cartTotal * 100}), // * by 100 to get the total in cents for stripe
       headers: {
         "Content-Type": "application/json",
       },
@@ -52,7 +55,10 @@ const Checkout = () => {
       {console.log(clientSecret)}
       {stripePromise && clientSecret && (
         <Elements stripe={stripePromise} options={{ clientSecret }}>
-          <CheckoutForm />
+          <Routes>
+            <Route path='/' element={<CheckoutForm />} />
+            <Route path='/complete' element={<Complete />} />
+          </Routes>
         </Elements>
       )}
     </div>
