@@ -1,9 +1,12 @@
 import { useStripe, useElements, PaymentElement } from "@stripe/react-stripe-js";
+import { useNavigate } from "react-router-dom";
 
 const CheckoutForm = () => {
     // Stipe
     const stripe = useStripe();
     const elements = useElements();
+
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
       e.preventDefault();
@@ -18,22 +21,44 @@ const CheckoutForm = () => {
         // `Elements` instance that was used to create the Payment Element
         elements, 
         confirmParams: {
-          return_url: `${window.location.origin}/checkout/complete`,
+          return_url: `${window.location.origin}/complete`,
         },
+        redirect: 'if_required',
       });
   
       if (result.error) {
         // show the error to customer
         console.log(result.error.message);
-      } else { // check else if (paymentIntent && paymentIntent.status === 'succeeded')
-        // redirect to the 'return_url' use navigate('/return_url');
-      }
+
+      } else if (result.paymentIntent && result.paymentIntent.status === 'succeeded'){
+        // Create the order and then navigate to the complete page and send the new order info        
+        const orderTotal = result.paymentIntent.amount / 100; // / by 100 to get the amount in $00.00
+        const paymentId = result.paymentIntent.id
+
+        const newOrder = await fetch(`${process.env.REACT_APP_API_PATH}/orders/new`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            "order_total": orderTotal,
+            "payment_id": paymentId
+          }),
+          credentials: "include"
+        }
+      )
+      const order = await newOrder.json();
+
+      //navigate to complete page and send state neworder
+      navigate(`/complete/${order.order_number}`, {state:{newOrder: order}});
+
+      } // put more elses here to handle other status
     };
 
 
   return (
     <form onSubmit={handleSubmit}>
-      <h1>Test</h1>
+      <h1>Checkout Form</h1>
       <PaymentElement />
       <button disabled={!stripe}>Submit</button>
     </form>
