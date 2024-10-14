@@ -1,35 +1,23 @@
-import { useEffect } from "react";
-import { useStripe } from "@stripe/react-stripe-js"
+import { useLocation, Link } from "react-router-dom";
 
-const Complete = () => {
-  const stripe = useStripe();
-
-
-  useEffect (() => {
-    if (!stripe) {
-      return
-    }
-
-    // Retrieve the 'payment_intent_client_secret" query parameter applied to return_url
-    const clientSecret = new URLSearchParams(window.location.search).get(
-      'payment_intent_client_secret'
-    );
-
-    // Retrieve PaymentIntent
-    stripe
-      .retrievePaymentIntent(clientSecret)
-      .then(({paymentIntent}) => {
-        if (paymentIntent.status === 'succeeded') {
-          // create new order
-          // send info to the server to create the order
-          // then display the returned order info
-        }
-      })
-  }, [stripe]);
-
+const Complete = ({ cart, sessionUser }) => {
+  const location = useLocation();
+  const newOrder = location.state.newOrder;
 
   return (
-    <div>Complete</div>
+    <div>
+      {newOrder.order_number ? (
+        <div>
+          <h1>Thank you for your order!</h1>
+
+          <p>{newOrder.order_number}</p>
+          <p>{newOrder.order_total}</p>
+
+          <Link to="/products">Continue Shopping</Link>
+
+        </div>
+      ) : <></>}
+    </div>
   )
 }
 
