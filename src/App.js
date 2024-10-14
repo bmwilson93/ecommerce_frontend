@@ -11,13 +11,12 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Account from './pages/Account';
 import Checkout from './pages/Checkout';
-
+import Complete from './pages/Complete';
 
 import './App.css';
 
 
 function App() {
-
   const [cart, setCart] = useState({
     "size": 0,
     "items": []
@@ -37,19 +36,19 @@ function App() {
   
   return (
       <div className="App">
-        <Header cart={cart} setCart={setCart} sessionUser={sessionUser}/>
+          <Header cart={cart} setCart={setCart} sessionUser={sessionUser}/>
 
-        <Routes>
-          <Route path='/' element={<div />}/>
-          <Route path='/products' element={<Products />}/>
-          <Route path='/product/:id' element={<Product setCart={setCart}/>}/>
-          <Route path='/cart' element={<Cart cart={cart} setCart={setCart}/>} />
-          <Route path='/login' element={<Login sessionUser={sessionUser} setSessionUser={setSessionUser}/>} />
-          <Route path='/signup' element={<Signup sessionUser={sessionUser} setSessionUser={setSessionUser}/>} />
-          <Route path='/account' element={<Account sessionUser={sessionUser} setSessionUser={setSessionUser}/>} />
-          <Route path='/checkout' element={<Checkout />} />
-          {/* <Route path='/complete' element={<Complete cart={cart} sessionUser={sessionUser}/>} /> */}
-        </Routes>
+          <Routes>
+            <Route path='/' element={<div />}/>
+            <Route path='/products' element={<Products />}/>
+            <Route path='/product/:id' element={<Product setCart={setCart}/>}/>
+            <Route path='/cart' element={<Cart cart={cart} setCart={setCart}/>} />
+            <Route path='/login' element={<Login sessionUser={sessionUser} setSessionUser={setSessionUser}/>} />
+            <Route path='/signup' element={<Signup sessionUser={sessionUser} setSessionUser={setSessionUser}/>} />
+            <Route path='/account' element={<Account sessionUser={sessionUser} setSessionUser={setSessionUser}/>} />
+            <Route path='/checkout' element={<Checkout />} />
+            <Route path='/complete/:id' element={<Complete />} />
+          </Routes>
       </div>
   );
 }
