@@ -34,7 +34,7 @@ img {
   justify-content: center;
   align-items: flex-start;
   gap: 50px;
-  border: 1px solid orange;
+  /* border: 1px solid orange; */
 }
 
 
