@@ -31,7 +31,7 @@ const Account = ({ sessionUser, setSessionUser }) => {
     <>
       {
         // Only render the page is there is a session
-        sessionUser ? 
+        sessionUser && orders ? 
 
         <div className="account-container">
           <p>First Name</p>
@@ -51,10 +51,10 @@ const Account = ({ sessionUser, setSessionUser }) => {
               {orders.map(order => (
                 <li>
                   <div>
-                    {order.order_number}
-                    {order.order_total}
-                    {order.created_at}
-                    {order.items.items.length}
+                    <p>Order #{order.order_number}</p>
+                    <p>{order.order_total}</p>
+                    <p>{order.created_at}</p>
+                    <p>{order.items.items.length} items</p>
                   </div>
                 </li>
               ))}
