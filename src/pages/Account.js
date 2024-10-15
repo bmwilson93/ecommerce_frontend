@@ -19,7 +19,6 @@ const Account = ({ sessionUser, setSessionUser }) => {
   }
 
   useEffect(() => {
-    console.log('useEffect Account.js')
     checkOnReload();
   }, [])
 
