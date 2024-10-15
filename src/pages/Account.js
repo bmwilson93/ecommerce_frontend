@@ -7,9 +7,28 @@ import './Account.css';
 
 const Account = ({ sessionUser, setSessionUser }) => {
   const navigate = useNavigate();
+
+  // States
   const [orders, setOrders] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
 
+  // Handle Input State Changes
+  const handleFirstNameChange = (e) => {
+    setFirstName(e.target.value);
+  }
+
+  const handleLastNameChange = (e) => {
+    setLastName(e.target.value);
+  }
+
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  }
+
+  
   // Check if logged in, if not redirect to the login page
   const checkOnReload = async () => {
     const session = await isLoggedIn();
