@@ -7,7 +7,8 @@ import './Account.css';
 
 const Account = ({ sessionUser, setSessionUser }) => {
   const navigate = useNavigate();
-  const [orders, setOrders] = useState(null)
+  const [orders, setOrders] = useState(null);
+  const [isEditing, setIsEditing] = useState(false);
 
   // Check if logged in, if not redirect to the login page
   const checkOnReload = async () => {
