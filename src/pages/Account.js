@@ -74,29 +74,37 @@ const Account = ({ sessionUser, setSessionUser }) => {
                 <div>
                   <label>First Name:</label>
 
+                  {/* Dynamically render either a p tag with the name, or an input to update the name
+                      depending on the isEditing state */}
                   {!isEditing 
                   ?
-                  <p>{sessionUser.first_name}</p>
+                    <p>{sessionUser.first_name}</p>
                   : 
-                  <input 
-                  type='text' 
-                  value={firstName} 
-                  onChange={handleFirstNameChange} 
-                  placeholder={sessionUser.first_name}
-                  />
-                }
+                    <input 
+                    type='text' 
+                    value={firstName} 
+                    onChange={handleFirstNameChange} 
+                    placeholder={sessionUser.first_name}
+                    />
+                  }
 
                 </div>
 
                 <div>
                   <label>Last Name:</label>
-                  <p>{sessionUser.last_name}</p>
-                  <input 
-                    type='text' 
-                    value={lastName} 
-                    onChange={handleLastNameChange} 
-                    placeholder={sessionUser.last_name}
-                  />
+
+                  {!isEditing
+                  ?
+                    <p>{sessionUser.last_name}</p>
+                  :
+                    <input 
+                      type='text' 
+                      value={lastName} 
+                      onChange={handleLastNameChange} 
+                      placeholder={sessionUser.last_name}
+                    />
+                  }
+
                 </div>
               </div>
 
@@ -104,13 +112,19 @@ const Account = ({ sessionUser, setSessionUser }) => {
               <div>
                 <div>
                   <label>Email:</label>
-                  <p>{sessionUser.email}</p>
-                  <input 
-                    type='email' 
-                    value={email} 
-                    onChange={handleEmailChange} 
-                    placeholder={sessionUser.email}
-                  />
+
+                  {!isEditing
+                  ?
+                    <p>{sessionUser.email}</p>
+                  :
+                    <input 
+                      type='email' 
+                      value={email} 
+                      onChange={handleEmailChange} 
+                      placeholder={sessionUser.email}
+                    />
+                  }
+
                 </div>
               </div>
 
