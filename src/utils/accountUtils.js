@@ -96,5 +96,17 @@ console.log(data);
 return data;
 }
 
+const getOrders = async () => {
+  const result = await fetch(`${process.env.REACT_APP_API_PATH}/orders`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    credentials: "include"
+  });
+  const data = await result.json();
+  console.log(data);
+  return data;
+}
 
-export {login, logout, register, isLoggedIn, getDisplayName}
+export {login, logout, register, isLoggedIn, getDisplayName, getOrders}
