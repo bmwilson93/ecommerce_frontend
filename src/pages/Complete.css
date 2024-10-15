@@ -5,7 +5,7 @@
   width: 50vw;
   margin: 50px auto;
   padding: 50px 0;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 
@@ -15,7 +15,7 @@
 }
 
 .order-list-li {
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
   display: flex;
   justify-content: center;
   padding-bottom: 15px;
@@ -42,7 +42,7 @@
 }
 
 .order-list-li  > div > div {
-  border: 1px dotted green;
+  /* border: 1px dotted green; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -56,7 +56,7 @@
 }
 
 .order-list-li > div > .order-price-line-item {
-  border: 1px solid green;
+  /* border: 1px solid green; */
   padding-top: 18px;
   margin-top: 10px;
 }
