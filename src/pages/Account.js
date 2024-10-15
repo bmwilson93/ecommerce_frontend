@@ -28,7 +28,7 @@ const Account = ({ sessionUser, setSessionUser }) => {
     setEmail(e.target.value);
   }
 
-  
+
   // Check if logged in, if not redirect to the login page
   const checkOnReload = async () => {
     const session = await isLoggedIn();
@@ -66,29 +66,47 @@ const Account = ({ sessionUser, setSessionUser }) => {
             <h2>Your Account</h2>
 
             <form onSubmit={handleSubmit}>
-              <div>
-
+              <div className="name-container">
                 <div>
                   <label>First Name:</label>
                   <p>{sessionUser.first_name}</p>
+                  <input 
+                    type='text' 
+                    value={firstName} 
+                    onChange={handleFirstNameChange} 
+                    placeholder={sessionUser.first_name}
+                  />
                 </div>
 
                 <div>
                   <label>Last Name:</label>
                   <p>{sessionUser.last_name}</p>
+                  <input 
+                    type='text' 
+                    value={lastName} 
+                    onChange={handleLastNameChange} 
+                    placeholder={sessionUser.last_name}
+                  />
                 </div>
-
               </div>
 
 
               <div>
-                <label>Email:</label>
-                <p>{sessionUser.email}</p>
+                <div>
+                  <label>Email:</label>
+                  <p>{sessionUser.email}</p>
+                  <input 
+                    type='email' 
+                    value={email} 
+                    onChange={handleEmailChange} 
+                    placeholder={sessionUser.email}
+                  />
+                </div>
               </div>
 
-              <button>Edit Account</button>
             </form>
 
+            <button>Edit Account</button> 
 
             <button onClick={() => handleLogout()}>Logout</button>
 
