@@ -49,6 +49,10 @@ const Account = ({ sessionUser, setSessionUser }) => {
     e.preventDefault();
   }
 
+  const handleToggleEdit = () => {
+    setIsEditing(prevState => !prevState);
+  }
+
   useEffect(() => {
     checkOnReload();
   }, [])
@@ -69,13 +73,19 @@ const Account = ({ sessionUser, setSessionUser }) => {
               <div className="name-container">
                 <div>
                   <label>First Name:</label>
+
+                  {!isEditing 
+                  ?
                   <p>{sessionUser.first_name}</p>
+                  : 
                   <input 
-                    type='text' 
-                    value={firstName} 
-                    onChange={handleFirstNameChange} 
-                    placeholder={sessionUser.first_name}
+                  type='text' 
+                  value={firstName} 
+                  onChange={handleFirstNameChange} 
+                  placeholder={sessionUser.first_name}
                   />
+                }
+
                 </div>
 
                 <div>
@@ -106,8 +116,11 @@ const Account = ({ sessionUser, setSessionUser }) => {
 
             </form>
 
-            <button>Edit Account</button> 
 
+            {/* Edit Button */}
+            <button onClick={handleToggleEdit}>Edit Account</button> 
+
+            {/* Logout Button */}
             <button onClick={() => handleLogout()}>Logout</button>
 
           </div>
