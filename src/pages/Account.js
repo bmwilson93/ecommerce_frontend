@@ -109,7 +109,7 @@ const Account = ({ sessionUser, setSessionUser }) => {
               </div>
 
 
-              <div>
+              <div className="email-container">
                 <div>
                   <label>Email:</label>
 
@@ -127,6 +127,13 @@ const Account = ({ sessionUser, setSessionUser }) => {
 
                 </div>
               </div>
+
+              {isEditing
+              ?
+                <button>Update</button>
+              :
+                <></>
+              }
 
             </form>
 
