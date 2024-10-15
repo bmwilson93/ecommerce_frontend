@@ -132,7 +132,12 @@ const Account = ({ sessionUser, setSessionUser }) => {
 
 
             {/* Edit Button */}
-            <button onClick={handleToggleEdit}>Edit Account</button> 
+            {!isEditing
+            ?
+              <button onClick={handleToggleEdit}>Edit Account</button> 
+            :
+            <button onClick={handleToggleEdit}>Cancel</button> 
+            }
 
             {/* Logout Button */}
             <button onClick={() => handleLogout()}>Logout</button>
