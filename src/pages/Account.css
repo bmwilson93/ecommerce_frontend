@@ -122,3 +122,33 @@ form label {
 #btn-update {
   margin: auto;
 }
+
+
+
+
+
+/* Orders List */
+.acc-container {
+  padding-top: 30px;
+}
+
+.account-order-container > ul {
+  margin: 0;
+  padding: 0;
+}
+
+.acc-order-container {
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: space-evenly;
+  padding: 50px;
+  cursor: pointer;
+}
+
+.account-order-container > ul > li {
+  border-bottom: 1px solid black;
+}
+
+.account-order-container > ul > li:last-child {
+  border-bottom: none;
+}
