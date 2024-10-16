@@ -78,7 +78,7 @@ const Account = ({ sessionUser, setSessionUser }) => {
                       depending on the isEditing state */}
                   {!isEditing 
                   ?
-                    <p>{sessionUser.first_name}</p>
+                    <p className="acc-name">{sessionUser.first_name}</p>
                   : 
                     <input 
                     type='text' 
@@ -95,7 +95,7 @@ const Account = ({ sessionUser, setSessionUser }) => {
 
                   {!isEditing
                   ?
-                    <p>{sessionUser.last_name}</p>
+                    <p className="acc-name">{sessionUser.last_name}</p>
                   :
                     <input 
                       type='text' 
@@ -130,7 +130,7 @@ const Account = ({ sessionUser, setSessionUser }) => {
 
               {isEditing
               ?
-                <button>Update</button>
+                <button className="acc-btn btn-blue" id='btn-update'>Update</button>
               :
                 <></>
               }
@@ -138,16 +138,25 @@ const Account = ({ sessionUser, setSessionUser }) => {
             </form>
 
 
-            {/* Edit Button */}
-            {!isEditing
-            ?
-              <button onClick={handleToggleEdit}>Edit Account</button> 
-            :
-            <button onClick={handleToggleEdit}>Cancel</button> 
-            }
+            <div className="acc-btn-container">
+              <div></div>
 
-            {/* Logout Button */}
-            <button onClick={() => handleLogout()}>Logout</button>
+              <div>
+                {/* Edit Button */}
+                {!isEditing
+                ?
+                  <button className='acc-btn btn-blue' onClick={handleToggleEdit}>Edit Account</button> 
+                :
+                <button className='acc-btn btn-cancel' onClick={handleToggleEdit}>Cancel</button> 
+                }
+              </div>
+
+              <div>
+                {/* Logout Button */}
+                <button id='btn-logout' className='acc-btn btn-blue' onClick={() => handleLogout()}>Logout</button>
+              </div>
+
+            </div>
 
           </div>
 
