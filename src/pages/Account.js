@@ -167,7 +167,10 @@ const Account = ({ sessionUser, setSessionUser }) => {
 
               {/* Render a list of orders on the account */}
               {orders.map(order => (
-                <li key={order.id}>
+                <li 
+                key={order.id}
+                onClick={() => navigate(`/order/${order.order_number}`, {state:{order: order}})}
+                >
                   <div className="acc-order-container">
                     <div>
                       <p>Order #<span className="bold">{order.order_number}</span></p>
