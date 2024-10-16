@@ -51,11 +51,24 @@ const Account = ({ sessionUser, setSessionUser }) => {
 
   const handleToggleEdit = () => {
     setIsEditing(prevState => !prevState);
+    if (sessionUser) {
+      setFirstName(sessionUser.first_name);
+      setLastName(sessionUser.last_name);
+      setEmail(sessionUser.email);
+    }
   }
 
   useEffect(() => {
     checkOnReload();
   }, [])
+
+  useEffect(() => {
+    if (sessionUser) {
+      setFirstName(sessionUser.first_name);
+      setLastName(sessionUser.last_name);
+      setEmail(sessionUser.email);
+    }
+  }, [sessionUser])
 
   return (
     <>
@@ -84,7 +97,6 @@ const Account = ({ sessionUser, setSessionUser }) => {
                     type='text' 
                     value={firstName} 
                     onChange={handleFirstNameChange} 
-                    placeholder={sessionUser.first_name}
                     />
                   }
 
@@ -101,7 +113,6 @@ const Account = ({ sessionUser, setSessionUser }) => {
                       type='text' 
                       value={lastName} 
                       onChange={handleLastNameChange} 
-                      placeholder={sessionUser.last_name}
                     />
                   }
 
@@ -121,7 +132,6 @@ const Account = ({ sessionUser, setSessionUser }) => {
                       type='email' 
                       value={email} 
                       onChange={handleEmailChange} 
-                      placeholder={sessionUser.email}
                     />
                   }
 
