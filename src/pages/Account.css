@@ -1,2 +1,124 @@
 @import '../App.css';
 
+/* .account-container {
+  border: 1px solid red;
+}
+
+.account-details-container {
+  border: 1px solid blue;
+}
+
+.account-order-container {
+  border: 1px solid green;
+}
+
+.name-container, .email-container {
+  border: 1px solid orange;
+}
+
+.name-container > div,
+.email-container > div {
+  border: 1px solid blue;
+} */
+
+
+.acc-container {
+  width: 60vw;
+  background-color: white;
+  margin: 10px auto;
+}
+
+
+
+/* Form */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  display: block;
+}
+
+
+
+/* Name Container */
+.name-container {
+  display: flex;
+  justify-content: center;
+}
+
+
+.name-container > div {
+  width: 25%;
+}
+
+.name-container, .email-container {
+  font-size: 20px;
+  padding: 20px;
+}
+
+.name-container p, .email-container p {
+  margin: 1 0;
+  /* border: 1px solid purple; */
+  padding: 6px;
+  /* height: 40px; */
+}
+
+.name-container input, .email-container input {
+  font-size: 20px;
+  text-align: center;
+  background-color: var(--blue-light);
+  padding: 6px;
+  border: none;
+  border-radius: 60px;
+  /* color: white; */
+  /* height: 40px; */
+}
+
+.name-container .acc-name {
+  /* font-size: 26px; */
+}
+
+
+
+/* Button Container */
+.acc-btn-container {
+  /* border: 1px solid red; */
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  /* flex-direction: column; */
+}
+
+.acc-btn-container > div {
+  /* border: 1px solid blue; */
+  flex: 1;
+}
+
+.acc-btn-container > div:last-child {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.acc-btn{
+  width: 120px;
+  height: 30px;
+  font-size: 16px;
+}
+
+.btn-cancel {
+  background-color: #b84343;
+  color: white;
+  cursor: pointer;
+  border: none;
+  border-radius: 2px;
+}
+
+.btn-cancel:hover {
+  background-color: #172d72;
+}
+
+#btn-update {
+  margin: auto;
+}
