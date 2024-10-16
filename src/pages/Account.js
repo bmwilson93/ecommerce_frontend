@@ -163,8 +163,10 @@ const Account = ({ sessionUser, setSessionUser }) => {
 
           <div className="account-order-container acc-container">
             <h2>Your Orders</h2>
-            <ul>
 
+            {orders || orders.length > 0
+            ?
+            <ul>
               {/* Render a list of orders on the account */}
               {orders.map(order => (
                 <li 
@@ -183,8 +185,10 @@ const Account = ({ sessionUser, setSessionUser }) => {
                   </div>
                 </li>
               ))}
-
             </ul>
+            :
+            <p>You have no orders</p>
+            }
           </div>
 
 
