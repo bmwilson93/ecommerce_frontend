@@ -26,9 +26,7 @@ const logout = async () => {
     },
     credentials: "include"
   });
-  // const data = await result.json();
   console.log(result);
-  // return data;
   return;
 }
 
@@ -43,7 +41,6 @@ const register = async (body) => {
   }
 );
 const data = await result.json();
-// console.log(result);
 return data;
 }
 
@@ -66,20 +63,6 @@ const isLoggedIn = async () => {
     console.log(error)
     return null;
   }
-
-  // const result = await fetch(`${process.env.REACT_APP_API_PATH}/isloggedin`, {
-  //   method: "GET",
-  //   headers: {
-  //     "Content-Type": "application/json",
-  //   },
-  //   credentials: "include"
-  // });
-  // console.log('testing result.ok')
-  // console.log(result.ok);
-  // const data = await result.json();
-  // return data;
-
-
 }
 
 const getDisplayName = async () => {
@@ -109,4 +92,22 @@ const getOrders = async () => {
   return data;
 }
 
-export {login, logout, register, isLoggedIn, getDisplayName, getOrders}
+const updateAccount = async (fisrtName, lastName, email) => {
+  const result = await fetch(`${process.env.REACT_APP_API_PATH}/user/update-user`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: {
+      first_name: fisrtName,
+      last_name: lastName,
+      email: email,
+    },
+    credentials: "include"
+  });
+  const data = await result.json();
+  console.log(data);
+  return data;
+}
+
+export {login, logout, register, isLoggedIn, getDisplayName, getOrders, updateAccount}
