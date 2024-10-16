@@ -167,12 +167,16 @@ const Account = ({ sessionUser, setSessionUser }) => {
 
               {/* Render a list of orders on the account */}
               {orders.map(order => (
-                <li>
-                  <div>
-                    <p>Order #{order.order_number}</p>
-                    <p>{order.order_total}</p>
-                    <p>{order.created_at}</p>
-                    <p>{order.items.items.length} items</p>
+                <li key={order.id}>
+                  <div className="acc-order-container">
+                    <div>
+                      <p>Order #<span className="bold">{order.order_number}</span></p>
+                      <p>Ordered on {order.created_at.substring(0, 10)}</p>
+                    </div>
+                    <div>
+                      <p>{order.order_total}</p>
+                      <p>{order.items.items.length} items</p>
+                    </div>
                   </div>
                 </li>
               ))}
