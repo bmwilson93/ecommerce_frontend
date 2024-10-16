@@ -12,6 +12,7 @@ import Signup from './pages/Signup';
 import Account from './pages/Account';
 import Checkout from './pages/Checkout';
 import Complete from './pages/Complete';
+import Order from './pages/Order';
 
 import './App.css';
 
@@ -48,6 +49,7 @@ function App() {
             <Route path='/account' element={<Account sessionUser={sessionUser} setSessionUser={setSessionUser}/>} />
             <Route path='/checkout' element={<Checkout />} />
             <Route path='/complete/:id' element={<Complete />} />
+            <Route path='/order/:id' element={<Order />} />
           </Routes>
       </div>
   );
