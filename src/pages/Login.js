@@ -34,9 +34,9 @@ const Login = ({ sessionUser, setSessionUser }) => {
     // make the call with the login util function
     let result = await login(body);
     setSessionUser(result);
-    // TODO add in the functionality to navigat to either account or checkout page
-    // navigate to next page (either /account or /checkout)
-    navigate(nextPage)
+    // clear the password state
+    setPassword('');
+    navigate(nextPage);
   }
 
 

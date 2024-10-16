@@ -45,6 +45,7 @@ const Signup = ({ sessionUser, setSessionUser }) => {
     // make the call with the register util function
     let result = await register(body);
     setSessionUser(result);
+    setPassword('');
     // if result.ok -> then succssful register & login, navigate to account page. 
     navigate(nextPage)
   }
