@@ -58,13 +58,15 @@
 
 /* Responsive Styles */
 @media screen and (max-width: 1020px) {
-  .complete-container {
+  .complete-container,
+  .order-container {
     width: 70vw;
   }
 }
 
 @media screen and (max-width: 720px) {
-  .complete-container {
+  .complete-container,
+  .order-container {
     width: 90vw;
   }
 }
