@@ -92,17 +92,13 @@ const getOrders = async () => {
   return data;
 }
 
-const updateAccount = async (fisrtName, lastName, email) => {
-  const result = await fetch(`${process.env.REACT_APP_API_PATH}/user/update-user`, {
+const updateAccount = async (body) => {
+  const result = await fetch(`${process.env.REACT_APP_API_PATH}/user/update`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
     },
-    body: {
-      first_name: fisrtName,
-      last_name: lastName,
-      email: email,
-    },
+    body: JSON.stringify(body),
     credentials: "include"
   });
   const data = await result.json();
