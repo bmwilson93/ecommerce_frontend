@@ -48,7 +48,7 @@ function App() {
             <Route path='/signup' element={<Signup sessionUser={sessionUser} setSessionUser={setSessionUser}/>} />
             <Route path='/account' element={<Account sessionUser={sessionUser} setSessionUser={setSessionUser}/>} />
             <Route path='/checkout' element={<Checkout />} />
-            <Route path='/complete/:id' element={<Complete />} />
+            <Route path='/complete/:id' element={<Complete setCart={setCart}/>} />
             <Route path='/order/:id' element={<Order />} />
           </Routes>
       </div>

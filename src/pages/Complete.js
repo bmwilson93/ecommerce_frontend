@@ -1,11 +1,19 @@
 import { useLocation, Link } from "react-router-dom";
+import { useEffect } from 'react'
 import OrderList from "../components/OrderList";
 
 import './Complete.css';
 
-const Complete = ({ cart, sessionUser }) => {
+const Complete = ({ setCart }) => {
   const location = useLocation();
   const newOrder = location.state.newOrder;
+
+  useEffect(() => {
+    setCart({
+      "size": 0,
+      "items": []
+    })
+  })
 
   return (
     <div>
