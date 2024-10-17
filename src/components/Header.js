@@ -8,7 +8,9 @@ import './Header.css'
 const Header = ({ cart, setCart, sessionUser }) => {
   const fetchCart = async () => {
     const currCart = await getCart();
-    setCart(currCart);
+    if (currCart) {
+      setCart(currCart);
+    }
   }
 
   // add a function to check if user is logged in, and get display name. 
