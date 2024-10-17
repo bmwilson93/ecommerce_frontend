@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from 'react-router-dom'
 import { logout } from "../utils/accountUtils";
-import { isLoggedIn, getOrders } from "../utils/accountUtils";
+import { isLoggedIn, getOrders, updateAccount } from "../utils/accountUtils";
 
 import './Account.css';
 
@@ -47,6 +47,16 @@ const Account = ({ sessionUser, setSessionUser }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const newInfo = new Object({
+      "first_name": firstName,
+      "last_name": lastName,
+      "email": email
+    })
+    const updatedInfo = await updateAccount(newInfo);
+    setSessionUser(updatedInfo);
+
+    setIsEditing(prevState => !prevState);
   }
 
   const handleToggleEdit = () => {
