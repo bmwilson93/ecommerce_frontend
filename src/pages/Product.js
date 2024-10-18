@@ -2,7 +2,7 @@ import React from 'react'
 import { useLocation } from 'react-router-dom'
 import { addToCart } from '../utils/cartUtils';
 
-
+import './Product.css';
 
 const Product = ({ setCart }) => {
   const location = useLocation();
