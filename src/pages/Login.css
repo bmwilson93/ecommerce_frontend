@@ -3,7 +3,6 @@
 .login-container, .signup-container {
   background-color: white;
   box-shadow: 2px 3px 10px  gray;
-  /* border: 1px solid blue; */
   width: 400px;
   margin: 100px auto;
   height: 600px;
@@ -78,4 +77,11 @@
   font-size: 18px;
   margin-left: 5px;
   cursor: pointer;
+}
+
+@media screen and (max-width: 420px) {
+  .login-container, 
+  .signup-container {
+    width: 90vw;
+  }
 }
