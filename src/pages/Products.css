@@ -1,0 +1,52 @@
+@import '../App.css';
+
+/* Product List Styles */
+.product-list {
+  margin: 80px auto;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: auto auto auto auto;
+}
+
+
+
+/* Product Card Styles */
+.product-card {
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 400px;
+  border-radius: 10px;
+  box-shadow: 2px 3px 10px  gray;
+  cursor: pointer;
+  height: 100%;
+}
+
+.product-card-img-container {
+  padding-top: 10px;
+  margin-top: 10px;
+}
+
+.product-card-details {
+  /* border: 1px solid blue; */
+  background-color: #77777c;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-radius: 0 0 10px 10px;
+  color: white;
+  font-size: 28px;
+}
+
+.product-card-details:hover {
+  background-color: green;
+}
+
+.price {
+  font-size: 22px;
+}
+
+.product-img {
+  width: 300px;
+}
