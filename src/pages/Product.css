@@ -8,7 +8,6 @@
   justify-content: center;
   gap: 50px;
   margin-top: 50px;
-  /* align-items: center; */
 }
 
 .product-container img {
@@ -62,4 +61,26 @@
 
 .add-cart-btn button:hover {
   background-color: #172d72;
+}
+
+
+/* Responsive Styles */
+@media screen and (max-width: 1300px) {
+  .product-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .product-details {
+    gap: 48px;
+  }
+
+}
+
+@media screen and (max-width: 650px) {
+  .product-container img,
+  .product-details {
+    width: 90vw;
+  }
 }
