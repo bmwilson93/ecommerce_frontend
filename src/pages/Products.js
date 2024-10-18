@@ -3,6 +3,8 @@ import ProductCard from '../components/ProductCard'
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
+import './Products.css';
+
 const Products = () => {
   const navigate = useNavigate();
 
