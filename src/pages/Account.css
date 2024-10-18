@@ -1,27 +1,5 @@
 @import '../App.css';
 
-/* .account-container {
-  border: 1px solid red;
-}
-
-.account-details-container {
-  border: 1px solid blue;
-}
-
-.account-order-container {
-  border: 1px solid green;
-}
-
-.name-container, .email-container {
-  border: 1px solid orange;
-}
-
-.name-container > div,
-.email-container > div {
-  border: 1px solid blue;
-} */
-
-
 .acc-container {
   width: 60vw;
   background-color: white;
@@ -40,17 +18,22 @@ form label {
   display: block;
 }
 
+form > div {
+  display: flex;
+  justify-content: center;
+}
 
 
 /* Name Container */
 .name-container {
   display: flex;
   justify-content: center;
+  gap: 28px;
 }
 
 
 .name-container > div {
-  width: 25%;
+  flex: 1;
 }
 
 .name-container, .email-container {
@@ -60,9 +43,8 @@ form label {
 
 .name-container p, .email-container p {
   margin: 1 0;
-  /* border: 1px solid purple; */
   padding: 6px;
-  /* height: 40px; */
+  width: 236px;
 }
 
 .name-container input, .email-container input {
@@ -72,23 +54,18 @@ form label {
   padding: 6px;
   border: none;
   border-radius: 60px;
-  /* color: white; */
-  /* height: 40px; */
 }
 
 
 
 /* Button Container */
 .acc-btn-container {
-  /* border: 1px solid red; */
   padding: 10px;
   display: flex;
   justify-content: center;
-  /* flex-direction: column; */
 }
 
 .acc-btn-container > div {
-  /* border: 1px solid blue; */
   flex: 1;
 }
 
@@ -120,9 +97,6 @@ form label {
 }
 
 
-
-
-
 /* Orders List */
 .acc-container {
   padding-top: 30px;
@@ -134,7 +108,6 @@ form label {
 }
 
 .acc-order-container {
-  /* border: 1px solid red; */
   display: flex;
   justify-content: space-evenly;
   padding: 50px;
@@ -147,4 +120,60 @@ form label {
 
 .account-order-container > ul > li:last-child {
   border-bottom: none;
+}
+
+
+/* Responsive Styles */
+@media screen and (max-width: 1380px) {
+  .acc-container {
+    width: 80vw;
+  }
+}
+
+@media screen and (max-width: 1064px) {
+  form > div {
+    flex-direction: column;
+  }
+
+  .name-container > div,
+  .email-container > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .name-container {
+    flex-direction: column;
+  }
+
+  .email-container {
+    padding-top: 10px;
+  }
+
+  .acc-btn-container {
+    flex-direction: column;
+  }
+  
+  .acc-btn-container > div:last-child {
+    justify-content: center;
+    padding-top: 20px;
+  }
+
+
+
+}
+
+@media screen and (max-width: 500px) {
+  .acc-container {
+    width: 90vw;
+  }
+}
+
+@media screen and (max-width: 412px) {
+  .acc-order-container {
+    flex-direction: column;
+    gap: 8px;
+  }
 }
