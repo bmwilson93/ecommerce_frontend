@@ -2,6 +2,8 @@ import React from 'react'
 import { useLocation } from 'react-router-dom'
 import { addToCart } from '../utils/cartUtils';
 
+import './Products.css';
+
 const Product = ({ setCart }) => {
   const location = useLocation();
   const product = location.state.product;
