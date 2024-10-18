@@ -1,6 +1,8 @@
 import { useStripe, useElements, PaymentElement } from "@stripe/react-stripe-js";
 import { useNavigate } from "react-router-dom";
 
+import '../pages/Checkout.css';
+
 const CheckoutForm = () => {
     // Stipe
     const stripe = useStripe();
@@ -57,10 +59,12 @@ const CheckoutForm = () => {
 
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h1>Checkout Form</h1>
-      <PaymentElement />
-      <button disabled={!stripe}>Submit</button>
+    <form onSubmit={handleSubmit} className="checkout-form">
+      <div className="payment-container">
+      <h1>Checkout</h1>
+        <PaymentElement />
+      <button className="btn-blue btn-checkout" disabled={!stripe}>Place Order</button>
+      </div>
     </form>
   )
 }

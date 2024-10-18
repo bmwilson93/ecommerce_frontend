@@ -2,6 +2,8 @@ import { useEffect, useState } from "react"
 import { useNavigate, useLocation, Route, Routes, Outlet } from 'react-router-dom'
 import { isLoggedIn } from "../utils/accountUtils";
 
+import './Checkout.css';
+
 // Stripe Imports
 import {Elements} from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
@@ -51,7 +53,6 @@ const Checkout = () => {
 
   return (
     <div>
-      <h1>hi</h1>
       {console.log(`clientSecret: ${clientSecret}`)}
       {stripePromise && clientSecret && (
         <Elements stripe={stripePromise} options={{ clientSecret }}>
