@@ -93,58 +93,61 @@ const Account = ({ sessionUser, setSessionUser }) => {
             <h2>Your Account</h2>
 
             <form onSubmit={handleSubmit}>
-              <div className="name-container">
-                <div>
-                  <label>First Name:</label>
+              <div>
 
-                  {/* Dynamically render either a p tag with the name, or an input to update the name
-                      depending on the isEditing state */}
-                  {!isEditing 
-                  ?
-                    <p className="acc-name">{sessionUser.first_name}</p>
-                  : 
-                    <input 
-                    type='text' 
-                    value={firstName} 
-                    onChange={handleFirstNameChange} 
-                    />
-                  }
+                <div className="name-container">
+                  <div>
+                    <label>First Name:</label>
 
-                </div>
-
-                <div>
-                  <label>Last Name:</label>
-
-                  {!isEditing
-                  ?
-                    <p className="acc-name">{sessionUser.last_name}</p>
-                  :
-                    <input 
+                    {/* Dynamically render either a p tag with the name, or an input to update the name
+                        depending on the isEditing state */}
+                    {!isEditing 
+                    ?
+                      <p className="acc-name">{sessionUser.first_name}</p>
+                    : 
+                      <input 
                       type='text' 
-                      value={lastName} 
-                      onChange={handleLastNameChange} 
-                    />
-                  }
+                      value={firstName} 
+                      onChange={handleFirstNameChange} 
+                      />
+                    }
 
+                  </div>
+
+                  <div>
+                    <label>Last Name:</label>
+
+                    {!isEditing
+                    ?
+                      <p className="acc-name">{sessionUser.last_name}</p>
+                    :
+                      <input 
+                        type='text' 
+                        value={lastName} 
+                        onChange={handleLastNameChange} 
+                      />
+                    }
+
+                  </div>
                 </div>
-              </div>
 
 
-              <div className="email-container">
-                <div>
-                  <label>Email:</label>
+                <div className="email-container">
+                  <div>
+                    <label>Email:</label>
 
-                  {!isEditing
-                  ?
-                    <p>{sessionUser.email}</p>
-                  :
-                    <input 
-                      type='email' 
-                      value={email} 
-                      onChange={handleEmailChange} 
-                    />
-                  }
+                    {!isEditing
+                    ?
+                      <p>{sessionUser.email}</p>
+                    :
+                      <input 
+                        type='email' 
+                        value={email} 
+                        onChange={handleEmailChange} 
+                      />
+                    }
 
+                  </div>
                 </div>
               </div>
 
@@ -199,7 +202,7 @@ const Account = ({ sessionUser, setSessionUser }) => {
                       <p>Ordered on {order.created_at.substring(0, 10)}</p>
                     </div>
                     <div>
-                      <p>{order.order_total}</p>
+                      <p><span className="bold">{order.order_total}</span></p>
                       <p>{order.items.items.length} items</p>
                     </div>
                   </div>
