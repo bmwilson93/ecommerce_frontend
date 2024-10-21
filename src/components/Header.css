@@ -80,7 +80,6 @@ header {
 
 /* Cart Button */
 .cart-button-container {
-  border: 1px solid red;
   position: fixed;
   right: 3%;
   top: 50px;
@@ -100,11 +99,6 @@ header {
 .cart-button-container button:hover {
   background-color: var(--blue);
 }
-
-.cart-button-container .small {
-  background-color: red;
-}
-
 }
 
 
