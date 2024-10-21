@@ -1,5 +1,6 @@
 import ProductCard from '../components/ProductCard'
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom';
 
 import './Home.css';
 
@@ -22,22 +23,12 @@ const Home = () => {
   return (
     <div className='home-container'>
 
-      <div>
+      <div className='welcome'>
         <h1>Welcome!</h1>
         <p>This is a portfolio project for Codecademy showcasing a full stack e-Commerce app</p>
 
       </div>
       
-      {/* <div>
-        <p>This application can:</p>
-        <ul id='project-list'>
-          <li>Browse Products</li>
-          <li>Add Products to Cart</li>
-          <li>Create or Log Into an Account</li>
-          <li>Place an Order</li>
-        </ul>
-
-      </div> */}
       <h2>Check out the newest products</h2>
       <div className='new-product-list'>
         <ul>
@@ -50,7 +41,9 @@ const Home = () => {
           })}
         </ul>
       </div>
-      <p>Or view all</p>
+      <p>
+        <Link to='/products' className='view-all'>Or view all</Link>
+      </p>
 
     </div>
   )
