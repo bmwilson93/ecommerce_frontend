@@ -1,1 +1,29 @@
 @import '../App.css';
+
+#project-list {
+  list-style: circle;
+  list-style-type: disc;
+  padding: 0;
+}
+
+.home-container {
+  /* border: 1px solid red; */
+  /* display: flex; */
+  justify-content: space-evenly;
+}
+
+
+.new-product-list {
+  display: flex;
+  justify-content: center;
+}
+
+.new-product-list ul {
+  padding: 0;
+  /* border: 1px solid red; */
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+}
