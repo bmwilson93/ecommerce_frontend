@@ -113,7 +113,10 @@ const Cart = ({ cart, setCart }) => {
         </ul>
 
         {/* Clear Cart Button */}
-        <button 
+        {
+          cart.size 
+          ?
+          <button 
           className='btn-blue btn-empty-cart'
           onClick={
             async () => {
@@ -124,6 +127,10 @@ const Cart = ({ cart, setCart }) => {
         >
           Empty Your Cart
         </button>
+          :
+          <></>
+        }
+
 
       </div>
 
@@ -137,12 +144,19 @@ const Cart = ({ cart, setCart }) => {
         </div>
         <div>
           {/* Checkout Button */}
-          <button 
-            className='btn-blue btn-checkout'
-            onClick={handleClick}
-          >
-            Check Out
-          </button>
+          {
+            cart.size 
+            ?
+            <button 
+              className='btn-blue btn-checkout'
+              onClick={handleClick}
+            >
+              Check Out
+            </button>
+            :
+            <p className='msg-empty'>Cart is Empty</p>
+          }
+
         </div>
       </div>
 
@@ -151,7 +165,5 @@ const Cart = ({ cart, setCart }) => {
     </div>
   )
 }
-
-// cart.item[0].id or .qty
 
 export default Cart
