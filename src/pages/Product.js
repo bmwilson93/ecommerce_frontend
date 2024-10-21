@@ -23,7 +23,6 @@ const Product = ({ setCart }) => {
           <button onClick={
             // Uses the cartUtils function to add an item to the cart
             async () => {
-              console.log(product);
               const updatedCart = await addToCart(JSON.stringify(product));
               setCart(updatedCart);
             }
