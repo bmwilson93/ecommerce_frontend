@@ -9,6 +9,7 @@ header {
 
 .link {
   text-decoration: none;
+  color: var(--blue-dark)
 }
 
 .head-top {
