@@ -1,12 +1,16 @@
+import React from 'react'
 import ProductCard from '../components/ProductCard'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'
 
 import './Home.css';
 
 const Home = () => {
+  const navigate = useNavigate();
 
   const fetchNewProducts = async () => {
+
     // make a request to backend to get all products in database
     const result = await fetch(`${process.env.REACT_APP_API_PATH}/products/new`);
     const data = await result.json();
@@ -34,8 +38,8 @@ const Home = () => {
         <ul>
           {products.map(product => {
             return (
-              <li key={product.id}>
-                <ProductCard product={product}/>
+              <li key={product.id} onClick={() => navigate(`/product/${product.id}`, {state:{product: product}})}>
+                <ProductCard product={product} />
               </li>
                 )
           })}
