@@ -25,7 +25,6 @@ const Login = ({ sessionUser, setSessionUser }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('submiting login');
     // build the body object
     let body = JSON.stringify({
       "username": email,
