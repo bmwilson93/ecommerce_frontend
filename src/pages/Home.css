@@ -1,15 +1,17 @@
 @import '../App.css';
 
-#project-list {
-  list-style: circle;
-  list-style-type: disc;
-  padding: 0;
+.home-container {
+  justify-content: space-evenly;
 }
 
-.home-container {
-  /* border: 1px solid red; */
-  /* display: flex; */
-  justify-content: space-evenly;
+.welcome {
+  margin-bottom: 100px;
+}
+
+.view-all {
+  font-size: 20px;
+  color: var(--blue-dark);
+  text-decoration: none;
 }
 
 
@@ -20,7 +22,6 @@
 
 .new-product-list ul {
   padding: 0;
-  /* border: 1px solid red; */
   display: flex;
   flex-wrap: wrap;
   align-items: center;
