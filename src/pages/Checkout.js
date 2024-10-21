@@ -28,7 +28,6 @@ const Checkout = () => {
     const session = await isLoggedIn();
     if (!session) navigate('/login', {state:{nextPage: '/checkout'}});
 
-    console.log(location.pathname);
     // only generate a paymentIntent if path != /checkout/complete
     if (location.pathname != '/checkout/complete') {
       // if user is logged in, then get stripe client secret
@@ -41,7 +40,6 @@ const Checkout = () => {
         credentials: "include"
       });
       const secret = await result.json();
-      console.log(`secret.client_secret: ${secret.client_secret}`);
       setClientSecret(secret.client_secret);
 
     }
@@ -53,7 +51,6 @@ const Checkout = () => {
 
   return (
     <div>
-      {console.log(`clientSecret: ${clientSecret}`)}
       {stripePromise && clientSecret && (
         <Elements stripe={stripePromise} options={{ clientSecret }}>
           <CheckoutForm />
