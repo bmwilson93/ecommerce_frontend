@@ -23,11 +23,7 @@ const Header = ({ cart, setCart, sessionUser }) => {
     <header>
       <div className='head-top'>
 
-        <div>e-Commerce</div>
-        
-
-
-
+        <div><Link className='link logo' to=''>e-Commerce</Link></div>
 
       </div> {/* END head-top */}
 
