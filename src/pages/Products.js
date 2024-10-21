@@ -12,7 +12,6 @@ const Products = () => {
     // make a request to backend to get all products in database
     const result = await fetch(`${process.env.REACT_APP_API_PATH}/products`);
     const data = await result.json();
-    console.log(data);
 
     setProducts(data);
   }
