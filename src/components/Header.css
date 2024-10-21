@@ -2,19 +2,46 @@
 
 /* Header Styles */
 header {
-  background-color: #77777c;
   font-size: 28px;
+  padding: 0;
+  margin: 0;
+}
+
+.link {
+  text-decoration: none;
 }
 
 .head-top {
   height:  60px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  margin: 0 150px;
+}
+
+.head-bottom {
+  display: flex;
 }
 
 
+@media screen and (min-width: 880px) {
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.head-top {
+  width: 20%;
+}
+
+.head-bottom {
+  margin-right: 4%;
+  display: flex;
+  align-items: center;
+}
+
+.link {
+  margin-right: 50px;
+}
 
 .account-btn-container {
   display: flex;
@@ -40,12 +67,10 @@ header {
   width: 150px;
   background-color: var(--blue-light);
   color: black;
-  /* border: 1px solid red; */
   position: relative;
   left: -70px;
   z-index: 0;
   padding-left: 60px;
-  /* text-align: right; */
 }
 
 .account-btn-container .sign-in-button {
@@ -53,12 +78,11 @@ header {
 }
 
 
-
-
 /* Cart Button */
 .cart-button-container {
+  border: 1px solid red;
   position: fixed;
-  right: 100px;
+  right: 3%;
   top: 50px;
 }
 
@@ -75,4 +99,40 @@ header {
 
 .cart-button-container button:hover {
   background-color: var(--blue);
+}
+
+.cart-button-container .small {
+  background-color: red;
+}
+
+}
+
+
+
+@media screen and (max-width: 880px) {
+  .head-bottom,
+  .head-bottom button,
+  .head-bottom .link {
+    background-color: var(--blue);
+    color: white;
+  }
+
+  .account-btn-container button,
+  .cart-button-container button {
+    border: none;
+    background: none;
+    font-size: 26px;
+    cursor: pointer;
+  }
+
+  .head-bottom .slash::before {
+    content: '/'
+  }
+
+  .head-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+  }
 }
