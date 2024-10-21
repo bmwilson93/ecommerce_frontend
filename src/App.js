@@ -13,6 +13,7 @@ import Account from './pages/Account';
 import Checkout from './pages/Checkout';
 import Complete from './pages/Complete';
 import Order from './pages/Order';
+import Home from './pages/Home';
 
 import './App.css';
 
@@ -40,7 +41,7 @@ function App() {
           <Header cart={cart} setCart={setCart} sessionUser={sessionUser}/>
 
           <Routes>
-            <Route path='/' element={<div />}/>
+            <Route path='/' element={<Home />}/>
             <Route path='/products' element={<Products />}/>
             <Route path='/product/:id' element={<Product setCart={setCart}/>}/>
             <Route path='/cart' element={<Cart cart={cart} setCart={setCart}/>} />
