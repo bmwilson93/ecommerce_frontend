@@ -57,8 +57,8 @@ const Cart = ({ cart, setCart }) => {
 
                     <div>
                       <div className='cart-item-price-container'>
-                        <p><span className='price-sign'></span><span className='price cart-price'>${(item.product.price * item.qty).toFixed(2)}</span></p>
-                        <p>(<span className='price-sign'>$</span><span className='price cart-price-per-item'>{item.product.price.toFixed(2)} x {item.qty} </span>)</p>
+                        <p><span className='price-sign'></span><span className='price cart-price'>${(item.product.price * item.qty)}</span></p>
+                        <p>(<span className='price-sign'>$</span><span className='price cart-price-per-item'>{item.product.price} x {item.qty} </span>)</p>
                       </div>
                     </div>
 
