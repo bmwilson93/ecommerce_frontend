@@ -17,7 +17,7 @@ const Product = ({ setCart }) => {
       <div className="product-details">
         <div>
           <h2>{product.name}</h2>
-          <p className='product-price'>${product.price.toFixed(2)}</p>
+          <p className='product-price'>{product.price}</p>
           <p>{product.description}</p>
         </div>
         <div>
