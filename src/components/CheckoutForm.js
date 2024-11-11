@@ -34,7 +34,7 @@ const CheckoutForm = () => {
 
       } else if (result.paymentIntent && result.paymentIntent.status === 'succeeded'){
         // Create the order and then navigate to the complete page and send the new order info        
-        const orderTotal = result.paymentIntent.amount / 100; // / by 100 to get the amount in $00.00
+        const orderTotal = result.paymentIntent.amount;
         const paymentId = result.paymentIntent.id
 
         const newOrder = await fetch(`${process.env.REACT_APP_API_PATH}/orders/new`, {
