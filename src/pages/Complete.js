@@ -22,7 +22,7 @@ const Complete = ({ setCart }) => {
           <h1>Thank you for your order!</h1>
 
           <p>Order #<span className="bold ">{newOrder.order_number}</span></p>
-          <p>Total <span className="price">{newOrder.order_total}</span></p>
+          <p>Total <span className="price">{(newOrder.order_total / 100).toFixed(2)}</span></p>
 
           <OrderList items={newOrder.items.items} />
 
