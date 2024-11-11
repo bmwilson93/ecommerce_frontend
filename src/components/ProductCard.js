@@ -11,7 +11,8 @@ const ProductCard = ({ product }) => {
           {product.name}
         </div>
         <div className='price'>
-          <p>{product.price}</p>
+          {/* Fix Here */}
+          <p>{(product.price / 100).toFixed(2)}</p>
         </div>
       </div>
     </div>

@@ -17,7 +17,8 @@ const Product = ({ setCart }) => {
       <div className="product-details">
         <div>
           <h2>{product.name}</h2>
-          <p className='product-price'>{product.price}</p>
+          {/* Fix Here */}
+          <p className='product-price'>{(product.price / 100).toFixed(2)}</p>
           <p>{product.description}</p>
         </div>
         <div>
