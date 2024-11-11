@@ -33,7 +33,7 @@ const Checkout = () => {
       // if user is logged in, then get stripe client secret
       const result = await fetch(`${process.env.REACT_APP_API_PATH}/orders/create-payment-intent`, {
         method: "POST",
-        body: JSON.stringify({"amount": cartTotal * 100}), // * by 100 to get the total in cents for stripe
+        body: JSON.stringify({"amount": cartTotal}),
         headers: {
           "Content-Type": "application/json",
         },
