@@ -138,7 +138,7 @@ const Cart = ({ cart, setCart }) => {
       <div className='cart-details-container'>
         <div className='cart-total'>
           <p>
-            Total: <span className='price-sign'>$</span><span className='price price-total'>{getCartTotal().toFixed(2)}</span>
+            Total: <span className='price-sign'>$</span><span className='price price-total'>{(getCartTotal() / 100 ).toFixed(2)}</span>
             
           </p>
         </div>
