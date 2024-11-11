@@ -11,7 +11,7 @@ const Cart = ({ cart, setCart }) => {
       for (let i = 0; i < cart.items.length; i++) {
         sum += (cart.items[i].product.price * cart.items[i].qty);
       }
-      return sum.toFixed(2);
+      return sum;
     }
   }
 
@@ -57,8 +57,8 @@ const Cart = ({ cart, setCart }) => {
 
                     <div>
                       <div className='cart-item-price-container'>
-                        <p><span className='price-sign'></span><span className='price cart-price'>${(item.product.price * item.qty)}</span></p>
-                        <p>(<span className='price-sign'>$</span><span className='price cart-price-per-item'>{item.product.price} x {item.qty} </span>)</p>
+                        <p><span className='price-sign'></span><span className='price cart-price'>${((item.product.price * item.qty) / 100).toFixed(2)}</span></p>
+                        <p>(<span className='price-sign'></span><span className='price cart-price-per-item'>{(item.product.price / 100).toFixed(2)} x {item.qty} </span>)</p>
                       </div>
                     </div>
 
@@ -138,7 +138,7 @@ const Cart = ({ cart, setCart }) => {
       <div className='cart-details-container'>
         <div className='cart-total'>
           <p>
-            Total: <span className='price-sign'>$</span><span className='price price-total'>{getCartTotal()}</span>
+            Total: <span className='price-sign'>$</span><span className='price price-total'>{getCartTotal().toFixed(2)}</span>
             
           </p>
         </div>
