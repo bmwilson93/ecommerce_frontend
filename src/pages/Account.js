@@ -202,7 +202,7 @@ const Account = ({ sessionUser, setSessionUser }) => {
                       <p>Ordered on {order.created_at.substring(0, 10)}</p>
                     </div>
                     <div>
-                      <p><span className="bold">{order.order_total}</span></p>
+                      <p><span className="bold">{(order.order_total / 100).toFixed(2)}</span></p>
                       <p>{order.items.items.length} items</p>
                     </div>
                   </div>

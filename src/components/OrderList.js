@@ -19,11 +19,11 @@ const OrderList = ({ items }) => {
                     <div>
                       <p>
                         (<span className='price-sign'>$</span>
-                        <span className=''>{item.product.price.toFixed(2)} x {item.qty} </span>)
+                        <span className=''>{(item.product.price / 100).toFixed(2)} x {item.qty} </span>)
                       </p>
                       <p className='order-price-line-item'>
                         <span className='price-sign'></span>
-                        <span className='price cart-price'>${(item.product.price * item.qty).toFixed(2)}</span>
+                        <span className='price cart-price'>${((item.product.price * item.qty) / 100).toFixed(2)}</span>
                       </p>
 
                     </div>
